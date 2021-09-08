@@ -7,6 +7,7 @@ import PasswordField from '../PasswordField/PasswordField';
 import Options from '../../Components/Options/Options';
 import Title from '../../Components/Title/Title';
 import SecurityLevel from '../../Components/SecurityLevel/SecurityLevel';
+import Loading from '../../Components/Loading/Loading';
 
 import generator from '../../Functions/PasswordGenerator';
 
@@ -38,8 +39,8 @@ const App = () => {
 
   const onLengthChange = (e) => {
     const input = e.target.value;
-    if(input > 50) {
-      alert('max length is 50')
+    if(input > 128) {
+      alert('max length is 128')
     } else if(input < 1) {
       setPassword(passwordGenerator(1, passwordParams))
     } else {
@@ -57,7 +58,7 @@ const App = () => {
  
   return !password 
   ?
-    <h1>Loading...</h1>
+    <Loading />
   :
     (
       <>
